@@ -133,3 +133,25 @@ $.ajax({
            }
 })
 }
+
+const usersByName = ()=>{
+event.preventDefault();
+const firstName = document.getElementById("fName").value;
+
+$.ajax({
+  type: "GET",
+  crossDomain: true,
+  headers: {
+  'Accept': 'application/json',
+  'Content-type': 'application/json',
+  'Access-Control-Allow-Origin': '*'
+  },
+  url: 'person-controller/readAll/'+firstName,
+  success: function (response){
+  updateDisplay(response)
+  },
+  error: function (response){
+           updateDisplay(response)
+           }
+})}
+
