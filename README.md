@@ -1,1 +1,1 @@
-This is a basic full stack RESTFUL application using JAVA, Spring Boot, h2 database and JavaScript. Users are able to save, read, update and delete persons from the frontend to the h2 database.
+This is a simple full-stack RESTful application built with Java, Spring Boot, H2 database, and JavaScript. It allows users to create, read, update, and delete person records via the frontend. The frontend makes RESTful API requests to the Spring Boot backend, which uses JPA to manage data interactions with the H2 database..
