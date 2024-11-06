@@ -1,7 +1,7 @@
 console.log("inside service.js")
 
 class Person{
-constructor(id, firstName, lastName){
+constructor(firstName, lastName){
 this.firstName = firstName;
 this.lastName = lastName;
 }
@@ -60,4 +60,76 @@ const id = document.getElementById("id").value
            updateDisplay(response)
            }
   })
+}
+
+const readAll = ()=>{
+event.preventDefault();
+$.ajax({
+  type: "GET",
+  crossDomain: true,
+  headers: {
+  'Accept': 'application/json',
+  'Content-type': 'application/json',
+  'Access-Control-Allow-Origin': '*'
+  },
+  url: 'person-controller/readAll',
+  success: function (response){
+  updateDisplay(response)
+  },
+  error: function (response){
+           updateDisplay(response)
+           }
+})
+}
+
+const updatePerson = ()=>{
+event.preventDefault();
+const id = document.getElementById("id").value;
+const fName = document.getElementById("fName").value;
+const lName = document.getElementById("lName").value;
+
+const person = new Person(fName, lName);
+const personData = JSON.stringify(person);
+
+$.ajax({
+  type: "PUT",
+  crossDomain: true,
+  headers: {
+  'Accept': 'application/json',
+  'Content-type': 'application/json',
+  'Access-Control-Allow-Origin': '*'
+  },
+  url: 'person-controller/update/'+id,
+  data:personData,
+  success: function (response){
+  updateDisplay(response)
+  },
+  error: function (response){
+           updateDisplay(response)
+           }
+})
+}
+
+
+const deletePerson = ()=>{
+event.preventDefault();
+const id = document.getElementById("id").value;
+
+
+$.ajax({
+  type: "DELETE",
+  crossDomain: true,
+  headers: {
+  'Accept': 'application/json',
+  'Content-type': 'application/json',
+  'Access-Control-Allow-Origin': '*'
+  },
+  url: 'person-controller/delete/'+id,
+  success: function (response){
+  updateDisplay(response)
+  },
+  error: function (response){
+           updateDisplay(response)
+           }
+})
 }
