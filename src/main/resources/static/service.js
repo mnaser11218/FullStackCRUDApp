@@ -2,7 +2,6 @@ console.log("inside service.js")
 
 class Person{
 constructor(id, firstName, lastName){
-this.id = id;
 this.firstName = firstName;
 this.lastName = lastName;
 }
@@ -18,8 +17,7 @@ event.preventDefault()
 console.log("inside create method")
 const firstName = document.getElementById("fName").value
 const lastName = document.getElementById("lName").value
-const id = document.getElementById("id").value
-  const person = new Person(id, firstName, lastName);
+  const person = new Person(firstName, lastName);
   const personData = JSON.stringify(person);
 
   $.ajax({
@@ -42,4 +40,24 @@ const id = document.getElementById("id").value
 }
 
 const getPerson = ()=> {
+event.preventDefault()
+console.log("inside get person")
+const id = document.getElementById("id").value
+
+  $.ajax({
+  type: "GET",
+  crossDomain: true,
+  headers: {
+  'Accept': 'application/json',
+  'Content-type': 'application/json',
+  'Access-Control-Allow-Origin': '*'
+  },
+  url: 'person-controller/read/'+id,
+  success: function (response){
+  updateDisplay(response)
+  },
+  error: function (response){
+           updateDisplay(response)
+           }
+  })
 }
