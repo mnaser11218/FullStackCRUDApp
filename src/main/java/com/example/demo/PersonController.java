@@ -27,6 +27,10 @@ public class PersonController {
     public ResponseEntity<Person> readById(@PathVariable Long id) {
         return new ResponseEntity<>(service.readById(id), HttpStatus.OK);
     }
+    @GetMapping(value = "/readAll/{first}")
+    public ResponseEntity<List<Person>> readAllByFirstName(@PathVariable String first) {
+        return new ResponseEntity<>(service.readByFirstName(first), HttpStatus.OK);
+    }
 
     @GetMapping(value = "/readAll")
     public ResponseEntity<List<Person>> readAll() {
