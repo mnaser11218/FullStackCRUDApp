@@ -9,7 +9,41 @@ this.lastName = lastName;
 }
 
 const updateDisplay = (response) =>{
-document.getElementById("output").innerText = JSON.stringify(response);
+//document.getElementById("output").innerText = JSON.stringify(response);
+clearTable();
+const data = response;
+console.log(data)
+var table = document.getElementById("myTable");
+
+var tbody = table.getElementsByTagName("tbody")[0];
+
+for (var i = 0; i < data.length; i++) {
+
+var row = tbody.insertRow(i);
+
+var cell1 = row.insertCell(0);
+
+cell1.innerHTML = data[i].id;
+console.log("data id: " + data[i] + " data " + data)
+
+var cell2 = row.insertCell(1);
+
+cell2.innerHTML = data[i].firstName;
+
+var cell2 = row.insertCell(2);
+
+cell2.innerHTML = data[i].lastName;
+
+}
+
+
+}
+
+function clearTable() {
+  const table = document.getElementById("myTable");
+  while (table.rows.length > 0) {
+    table.deleteRow(0);
+  }
 }
 
 const create = () => {
