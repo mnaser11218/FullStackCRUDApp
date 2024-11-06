@@ -1,16 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
 
 <script src="./service.js"></script>
-<h1>testing h1 tag</h1>
+<form>
+    <input id="id"> - Id
+    <input id="fName"> - FirstName
+    <input id="lName"> - LastName
+
+    <button onclick="readPerson()"> Read Person </button>
+    <button onclick="create()"> Create Person </button>
+    <button> Read All Persons </button>
+    <button> Delete Person </button>
+    <button> Update Person </button>
 
 
-</body>
-</html>
+</form>
+
+<div id="output"></div>
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--    <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>-->
+
+<!--    <script src="./service.js"></script>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<form id="person" onsubmit="create()">-->
+<!--   Id: <input type="text" id="id"/>-->
+<!--   First Name: <input type="text" id="fname"/>-->
+<!--   Last Name: <input type="text" id="lname"/>-->
+<!--    <input type="submit" value="submit"  />-->
+<!--</form>-->
+<!--<p id="output"></p>-->
+
+
+
+<!--</body>-->
+<!--</html>-->
