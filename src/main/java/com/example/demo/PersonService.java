@@ -30,6 +30,12 @@ public class PersonService {
         return personList;
     }
 
+    public List<Person>readByFirstName(String firstName){
+
+      return repository.getPersonsByFirstName(firstName);
+
+    };
+
     public Person update(Long id, Person newPersonData) {
         Person personInDatabase = this.readById(id);
         personInDatabase.setFirstName(newPersonData.getFirstName());
