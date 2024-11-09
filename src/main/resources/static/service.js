@@ -3,8 +3,28 @@ constructor(firstName, lastName){
 this.firstName = firstName;
 this.lastName = lastName;
 }
+}
+const fetchCall = (type, url, personData)=>{
+  $.ajax({
+  type: type,
+  crossDomain: true,
+  headers: {
+  'Accept': 'application/json',
+  'Content-type': 'application/json',
+  'Access-Control-Allow-Origin': '*'
+  },
+  url: url,
+  data:personData,
+  success: function (response){
+  updateDisplay(response)
+  },
+  error: function (response){
+           updateDisplay(response)
+           }
+  })
 
 }
+
 
 const updateDisplay = (response) =>{
 clearTable();
@@ -27,8 +47,8 @@ cell2.innerHTML = data[i].lastName;
 
 function clearTable() {
   const table = document.getElementById("myTable");
-  while (table.rows.length > 0) {
-    table.deleteRow(0);
+  while (table.rows.length > 1) {
+    table.deleteRow(1);
   }
 }
 
@@ -38,66 +58,19 @@ const firstName = document.getElementById("fName").value
 const lastName = document.getElementById("lName").value
   const person = new Person(firstName, lastName);
   const personData = JSON.stringify(person);
-
-  $.ajax({
-  type: "POST",
-  crossDomain: true,
-  headers: {
-  'Accept': 'application/json',
-  'Content-type': 'application/json',
-  'Access-Control-Allow-Origin': '*'
-  },
-  url: 'person-controller/create',
-  data:personData,
-  success: function (response){
-  updateDisplay(response)
-  },
-  error: function (response){
-           updateDisplay(response)
-           }
-  })
+   fetchCall("POST", 'person-controller/create', personData);
 }
 
 const getPerson = ()=> {
 event.preventDefault()
 const id = document.getElementById("id").value
-
-  $.ajax({
-  type: "GET",
-  crossDomain: true,
-  headers: {
-  'Accept': 'application/json',
-  'Content-type': 'application/json',
-  'Access-Control-Allow-Origin': '*'
-  },
-  url: 'person-controller/read/'+id,
-  success: function (response){
-  updateDisplay(response)
-  },
-  error: function (response){
-           updateDisplay(response)
-           }
-  })
+const url = 'person-controller/read/'+id;
+   fetchCall("GET", url, null)
 }
 
 const readAll = ()=>{
 event.preventDefault();
-$.ajax({
-  type: "GET",
-  crossDomain: true,
-  headers: {
-  'Accept': 'application/json',
-  'Content-type': 'application/json',
-  'Access-Control-Allow-Origin': '*'
-  },
-  url: 'person-controller/readAll',
-  success: function (response){
-  updateDisplay(response)
-  },
-  error: function (response){
-           updateDisplay(response)
-           }
-})
+fetchCall("GET", 'person-controller/readAll', null);
 }
 
 const updatePerson = ()=>{
@@ -108,68 +81,22 @@ const lName = document.getElementById("lName").value;
 
 const person = new Person(fName, lName);
 const personData = JSON.stringify(person);
-
-$.ajax({
-  type: "PUT",
-  crossDomain: true,
-  headers: {
-  'Accept': 'application/json',
-  'Content-type': 'application/json',
-  'Access-Control-Allow-Origin': '*'
-  },
-  url: 'person-controller/update/'+id,
-  data:personData,
-  success: function (response){
-  updateDisplay(response)
-  },
-  error: function (response){
-           updateDisplay(response)
-           }
-})
+const url = 'person-controller/update/'+id;
+fetchCall("PUT",url, personData);
 }
 
 
 const deletePerson = ()=>{
 event.preventDefault();
 const id = document.getElementById("id").value;
-
-
-$.ajax({
-  type: "DELETE",
-  crossDomain: true,
-  headers: {
-  'Accept': 'application/json',
-  'Content-type': 'application/json',
-  'Access-Control-Allow-Origin': '*'
-  },
-  url: 'person-controller/delete/'+id,
-  success: function (response){
-  updateDisplay(response)
-  },
-  error: function (response){
-           updateDisplay(response)
-           }
-})
+const url = 'person-controller/delete/'+id;
+fetchCall("DELETE",url,null)
 }
 
 const usersByName = ()=>{
 event.preventDefault();
 const firstName = document.getElementById("fName").value;
-
-$.ajax({
-  type: "GET",
-  crossDomain: true,
-  headers: {
-  'Accept': 'application/json',
-  'Content-type': 'application/json',
-  'Access-Control-Allow-Origin': '*'
-  },
-  url: 'person-controller/readAll/'+firstName,
-  success: function (response){
-  updateDisplay(response)
-  },
-  error: function (response){
-           updateDisplay(response)
-           }
-})}
+const url = 'person-controller/readAll/'+firstName;
+fetchCall("GET", url, null)
+}
 
