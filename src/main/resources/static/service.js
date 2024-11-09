@@ -28,11 +28,19 @@ const fetchCall = (type, url, personData)=>{
 
 const updateDisplay = (response) =>{
 clearTable();
-const data = response;
+var data =[];
+if(!Array.isArray(response) ){
+date = data[0] =response
+}else{
+data =response;
+}
+
+
 console.log(data)
 var table = document.getElementById("myTable");
 var tbody = table.getElementsByTagName("tbody")[0];
 for (var i = 0; i < data.length; i++) {
+
 var row = tbody.insertRow(i);
 var cell1 = row.insertCell(0);
 cell1.innerHTML = data[i].id;
