@@ -1,5 +1,3 @@
-console.log("inside service.js")
-
 class Person{
 constructor(firstName, lastName){
 this.firstName = firstName;
@@ -9,31 +7,19 @@ this.lastName = lastName;
 }
 
 const updateDisplay = (response) =>{
-//document.getElementById("output").innerText = JSON.stringify(response);
 clearTable();
 const data = response;
 console.log(data)
 var table = document.getElementById("myTable");
-
 var tbody = table.getElementsByTagName("tbody")[0];
-
 for (var i = 0; i < data.length; i++) {
-
 var row = tbody.insertRow(i);
-
 var cell1 = row.insertCell(0);
-
 cell1.innerHTML = data[i].id;
-console.log("data id: " + data[i] + " data " + data)
-
 var cell2 = row.insertCell(1);
-
 cell2.innerHTML = data[i].firstName;
-
 var cell2 = row.insertCell(2);
-
 cell2.innerHTML = data[i].lastName;
-
 }
 
 
@@ -48,7 +34,6 @@ function clearTable() {
 
 const create = () => {
 event.preventDefault()
-console.log("inside create method")
 const firstName = document.getElementById("fName").value
 const lastName = document.getElementById("lName").value
   const person = new Person(firstName, lastName);
@@ -75,7 +60,6 @@ const lastName = document.getElementById("lName").value
 
 const getPerson = ()=> {
 event.preventDefault()
-console.log("inside get person")
 const id = document.getElementById("id").value
 
   $.ajax({
