@@ -13,12 +13,12 @@ public class PersonConfig {
     @PostConstruct
     public void setup() {
         Person person1 = new Person();
-        person1.setFirstName("testing first name 1");
-        person1.setLastName("testing last name");
+        person1.setFirstName("Mohammed");
+        person1.setLastName("Naser");
 
         Person person2 = new Person();
-        person2.setFirstName("test 2");
-        person1.setLastName("test last 2");
+        person2.setFirstName("Ayad");
+        person1.setLastName("Naser");
 
         repository.saveAll(Arrays.asList(
                 person1,
