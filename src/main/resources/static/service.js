@@ -23,6 +23,10 @@ const fetchCall = (type, url, personData)=>{
            }
   })
 
+ document.getElementById("id").value = "";
+  document.getElementById("fName").value="";
+  document.getElementById("lName").value="";
+
 }
 
 
