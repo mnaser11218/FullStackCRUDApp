@@ -10,7 +10,7 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
 //    public UserProfile getUserProfileByUserName(String string);
 
     @Query(value="SELECT * from person where first_name =?1", nativeQuery = true)
-    public List<Person> getPersonsByFirstName(String string);
+     List<Person> getPersonsByFirstName(String string);
 
 
 
