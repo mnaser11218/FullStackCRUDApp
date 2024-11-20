@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "850f5f4c-60e4-4ce7-89c9-ae0bf5901044",
+		"name": "springboot-crud-application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17184661",
+		"_collection_link": "https://planetary-water-222454.postman.co/workspace/Api-Workspace~45700440-e72f-456c-83af-42aea7bf6d7f/collection/17184661-850f5f4c-60e4-4ce7-89c9-ae0bf5901044?action=share&source=collection_link&creator=17184661"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 3,\n    \"firstName\": \"someone\",\n    \"lastName\": \"else\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/person-controller/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person-controller",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/person-controller/read/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person-controller",
+						"read",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/person-controller/readall",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person-controller",
+						"readall"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updatePerson",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"firstName\": \"updated firstName\",\n    \"lastName\": \"updated lastName\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/person-controller/update/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person-controller",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletePerson",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/person-controller/delete/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person-controller",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllByFirstName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/person-controller/readAll/Leon",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person-controller",
+						"readAll",
+						"Leon"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
